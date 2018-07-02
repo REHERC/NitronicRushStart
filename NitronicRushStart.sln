@@ -5,6 +5,20 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NitronicRushStart", "NitronicRushStart\NitronicRushStart.csproj", "{264ED7AD-7114-49F3-B874-B5B1C413FCD5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Referenced Assemblies", "Referenced Assemblies", "{0CFFFDBE-4A86-44A3-8241-B51FC81C435C}"
+	ProjectSection(SolutionItems) = preProject
+		Referenced Assemblies\0Harmony.dll = Referenced Assemblies\0Harmony.dll
+		Referenced Assemblies\Assembly-CSharp.dll = Referenced Assemblies\Assembly-CSharp.dll
+		Referenced Assemblies\JsonFx.dll = Referenced Assemblies\JsonFx.dll
+		Referenced Assemblies\Spectrum.API.dll = Referenced Assemblies\Spectrum.API.dll
+		Referenced Assemblies\Spectrum.Interop.dll = Referenced Assemblies\Spectrum.Interop.dll
+		Referenced Assemblies\Spectrum.Manager.dll = Referenced Assemblies\Spectrum.Manager.dll
+		Referenced Assemblies\UnityEngine.dll = Referenced Assemblies\UnityEngine.dll
+		Referenced Assemblies\UnityEngine.Networking.dll = Referenced Assemblies\UnityEngine.Networking.dll
+		Referenced Assemblies\UnityEngine.UI.dll = Referenced Assemblies\UnityEngine.UI.dll
+		Referenced Assemblies\UnityEngine.VR.dll = Referenced Assemblies\UnityEngine.VR.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
