@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NAudio.Wave;
+﻿using NAudio.Wave;
 
 namespace NitronicRushStart
 {
@@ -41,10 +37,10 @@ namespace NitronicRushStart
 
             string Data = CurrentPlugin.PluginDataPath();
 
-            Countdown_3.Init(new WaveFileReader($@"{Data}\3.wav"));
-            Countdown_2.Init(new WaveFileReader($@"{Data}\2.wav"));
-            Countdown_1.Init(new WaveFileReader($@"{Data}\1.wav"));
-            Countdown_Rush.Init(new WaveFileReader($@"{Data}\rush.wav"));
+            Countdown_3.Init(new WaveFileReader($@"{Data}\Audio\3.wav"));
+            Countdown_2.Init(new WaveFileReader($@"{Data}\Audio\2.wav"));
+            Countdown_1.Init(new WaveFileReader($@"{Data}\Audio\1.wav"));
+            Countdown_Rush.Init(new WaveFileReader($@"{Data}\Audio\rush.wav"));
         }
     }
 }

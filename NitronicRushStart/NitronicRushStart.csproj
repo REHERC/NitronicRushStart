@@ -75,10 +75,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LetMeIn.cs" />
+    <Compile Include="Patches\Harmony\CarLogic.Awake.cs" />
     <Compile Include="Patches\Harmony\ModeStartupSoundsLogic.Update.cs" />
     <Compile Include="Patches\Harmony\Phantom.Play.cs" />
     <Compile Include="Photon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Countdown.cs" />
+    <Compile Include="Scripts\CountdownManager.cs" />
     <Compile Include="Storage\CurrentPlugin.cs" />
     <Compile Include="Storage\SharedAudio.cs" />
   </ItemGroup>
