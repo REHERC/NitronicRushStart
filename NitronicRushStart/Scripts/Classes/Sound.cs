@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using UnityEngine;
 
 namespace NitronicRushStart.UnityScripts
@@ -7,18 +8,17 @@ namespace NitronicRushStart.UnityScripts
     public class Sound
     {
         public string Name;
-        public AudioClip Clip;
+        public Stream Clip;
         [Range(0.0f,1.0f)]
         public float Volume = 1;
-        [HideInInspector]
-        public AudioSource Source;
 
-        public Sound(string name, string bundlepath)
+        public Sound(string name, string path)
         {
             try
             {
                 this.Name = name;
-                this.Clip = CurrentPlugin.Assets.Bundle.LoadAsset<AudioClip>(bundlepath);
+                this.Clip = new FileStream(CurrentPlugin.PluginDataPath() + path, FileMode.Open);
+                this.Volume = 1;
             }
             catch (Exception e)
             {

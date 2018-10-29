@@ -10,8 +10,8 @@ namespace NitronicRushStart.UnityScripts
         public float StartKey = 0;
         public float DurationKey = 1;
 
-        public float ClipStart;
-        public string ClipName;
+        public float AudioClipStart;
+        public string AudioClipName;
 
         private float EndKey = 1;
         private Image img;
@@ -23,6 +23,7 @@ namespace NitronicRushStart.UnityScripts
         void Start()
         {
             this.img = this.GetComponent<Image>();
+            UnityEngine.Object.FindObjectOfType<UnityScripts.AudioManager>().Play(this.AudioClipName);
         }
 
         // Update is called once per frame
@@ -32,10 +33,10 @@ namespace NitronicRushStart.UnityScripts
             Material mat = Instantiate(this.img.material);
             mat.SetFloat("_Progress", this.GetInterpolationState(this.Time));
             
-            if (this.CurrentTime >= this.ClipStart && this.LastTime <= this.ClipStart)
+            if (this.CurrentTime >= this.AudioClipStart && this.LastTime <= this.AudioClipStart)
             {
-                Console.WriteLine(this.ClipName);
-                UnityEngine.Object.FindObjectOfType<UnityScripts.AudioManager>().Play(this.ClipName);
+                Console.WriteLine(this.AudioClipName);
+                UnityEngine.Object.FindObjectOfType<UnityScripts.AudioManager>().Play(this.AudioClipName);
             }
 
             this.img.material = mat;

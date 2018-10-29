@@ -18,8 +18,6 @@ namespace NitronicRushStart
             try
             {
                 CurrentPlugin.Initialize();
-                
-
                 HarmonyInstance Harmony = HarmonyInstance.Create("com.REHERC.NitronicRushStart");
                 Harmony.PatchAll(Assembly.GetExecutingAssembly());
             }
@@ -46,7 +44,6 @@ namespace NitronicRushStart
 
         public static GameObject AM_Obj;
         public static UnityScripts.AudioManager AM;
-        public static AudioListener AM_Listener;
 
         public void CreateAudioManager()
         {
@@ -57,26 +54,32 @@ namespace NitronicRushStart
                 AM_Obj = GameObject.Instantiate(Prefab);
                 AM_Obj.name = "AudioManager";
                 AM_Obj.transform.parent = null;
-                AM = AM_Obj.AddComponent(typeof (UnityScripts.AudioManager)) as UnityScripts.AudioManager;
-                AM_Listener = AM_Obj.AddComponent(typeof(AudioListener)) as AudioListener;
+                AM = AM_Obj.AddComponent(typeof(UnityScripts.AudioManager)) as UnityScripts.AudioManager;
+
                 AM.Sounds = new List<UnityScripts.Sound>();
-                AM.Sounds.Add(new UnityScripts.Sound("Countdown3", "Assets/Audio/3.wav"));
-                AM.Sounds.Add(new UnityScripts.Sound("Countdown2", "Assets/Audio/2.wav"));
-                AM.Sounds.Add(new UnityScripts.Sound("Countdown1", "Assets/Audio/1.wav"));
-                AM.Sounds.Add(new UnityScripts.Sound("CountdownRush", "Assets/Audio/rush.wav"));
+                AM.Sounds.Add(new UnityScripts.Sound("Countdown3", @"\Audio\3.mp3"));
+                AM.Sounds.Add(new UnityScripts.Sound("Countdown2", @"\Audio\2.mp3"));
+                AM.Sounds.Add(new UnityScripts.Sound("Countdown1", @"\Audio\1.mp3"));
+                AM.Sounds.Add(new UnityScripts.Sound("CountdownRush", @"\Audio\rush.mp3"));
                 AM.Setup();
 
                 UnityEngine.Object.DontDestroyOnLoad(AM_Obj);
                 UnityEngine.Object.DontDestroyOnLoad(AM);
             }
-            
+
+        }
+
+        public void Shutdown()
+        {
+            AM.Destruct();
         }
 
         public void Update()
         {
             GameObject HUD = GameObject.Find("NitronicCountdownHUD");
-            Console.Title = (GameObject.Find(AM_Obj?.name) != null).ToString() + " | " + UnityEngine.Object.FindObjectsOfType<Camera>().Length + " camera(s) | " + UnityEngine.Object.FindObjectsOfType<AudioListener>().Length + " audio listener(s)";
 
+            Console.Title = Timex.ModeTime_.ToString();
+               
             if (HUD != null)
             {
                 CountdownManager manager = HUD.GetComponent<CountdownManager>();
