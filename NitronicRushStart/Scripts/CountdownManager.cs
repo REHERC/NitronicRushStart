@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace NitronicRushStart.UnityScripts
 {
-    class CountdownManager : MonoBehaviour
+    public class CountdownManager : MonoBehaviour
     {
         public List<Countdown> Digits;
 
