@@ -2,6 +2,7 @@
 using Harmony;
 using NitronicRushStart.UnityScripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace NitronicRushStart
 {
@@ -35,12 +36,16 @@ namespace NitronicRushStart
                 
                 CountdownManager Manager = HUD.AddComponent(typeof(CountdownManager)) as CountdownManager;
                 Manager.Setup();
+
+                Scene scene = SceneManager.GetActiveScene();
+                if (scene.name != "MainMenu" && scene.name != "LevelEditor" && G.Sys.GameManager_.ModeID_ != GameModeID.Adventure && G.Sys.GameManager_.ModeID_ != GameModeID.LostToEchoes)
+                {
+                    __instance.gameObject.AddComponent<UnityScripts.GameUpdate>();
+                }
             }
             catch (Exception e)
             {
-                Spectrum.API.Logging.Logger log = new Spectrum.API.Logging.Logger("NRStart.log");
-                log.WriteToConsole = true;
-                log.Exception(e);
+
             }
         }
     }
