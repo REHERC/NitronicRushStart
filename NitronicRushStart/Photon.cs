@@ -21,9 +21,7 @@ namespace NitronicRushStart
             }
             catch (Exception e)
             {
-                Spectrum.API.Logging.Logger log = new Spectrum.API.Logging.Logger("NRStart.log");
-                log.WriteToConsole = true;
-                log.Exception(e);
+
             }
 
             // Subscribe to events

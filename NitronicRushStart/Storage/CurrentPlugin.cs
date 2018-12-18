@@ -5,11 +5,11 @@ namespace NitronicRushStart
 {
     public static class CurrentPlugin
     {
-        public static Assets Assets;
+        public static Assets NitronicHUD;
 
         public static void Initialize()
         {
-            Assets = new Assets("nitronichud");
+            NitronicHUD = new Assets("nitronichud");
         }
 
         public static string PluginDataPath()
